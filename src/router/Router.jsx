@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Medication from "../pages/Medication";
 import AddMedication from "../pages/AddMedication";
+import EdditMedication from "../pages/EditMedication";
 
 const routerMedications = createBrowserRouter([{
     path: "/",
@@ -18,6 +19,10 @@ const routerMedications = createBrowserRouter([{
         {
             path: "/add-medication/",
             element: <AddMedication/>
+        },
+        {
+            path: "/edit-medication/",
+            element: <EdditMedication/>
         },
     ]
 }])

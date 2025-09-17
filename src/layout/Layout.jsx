@@ -4,7 +4,13 @@ import Footer from "../components/Footer"
 
 const Layout = () => {
     return (
-        <></>
+        <>
+            <Navbar></Navbar>
+            <div className="container-section">
+                <Outlet></Outlet>
+            </div>
+            <Footer></Footer>
+        </>
     )
 }
 
