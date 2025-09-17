@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 
-const Medication = () => {
+const EdditMedication = () => {
     return (
         <>
-            <p>Hola</p>
         </>
     )
 }
 
-export default Medication
+export default EdditMedication
