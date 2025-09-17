@@ -3,10 +3,11 @@ import Layout from "../layout/Layout";
 import Medication from "../pages/Medication";
 import AddMedication from "../pages/AddMedication";
 import EdditMedication from "../pages/EditMedication";
+import Home from "../pages/Home";
 
 const routerMedications = createBrowserRouter([{
     path: "/",
-    element: <Layout></Layout>,
+    element: <Layout/>,
     children: [
         {
             index: true,
