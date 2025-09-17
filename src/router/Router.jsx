@@ -8,21 +8,21 @@ const routerMedications = createBrowserRouter([{
     path: "/",
     element: <Layout></Layout>,
     children: [
-        // {
-        //     index: true,
-        //     element: <Home/>
-        // },
+        {
+            index: true,
+            element: <Home />
+        },
         {
             path: "/medication",
-            element: <Medication/>
+            element: <Medication />
         },
         {
             path: "/add-medication/",
-            element: <AddMedication/>
+            element: <AddMedication />
         },
         {
             path: "/edit-medication/",
-            element: <EdditMedication/>
+            element: <EdditMedication />
         },
     ]
 }])
