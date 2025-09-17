@@ -4,7 +4,7 @@ import MedicationForm from "../components/MedicationForm";
 const AddMedication = () => {
     const handleAddMedication = (data) => {
         console.log("Datos del formulario:", data);
-        // Aquí puedes hacer POST a tu API o json-server
+        
     };
     return (
         <>
