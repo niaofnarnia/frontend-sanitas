@@ -7,10 +7,10 @@ const routerMedications = createBrowserRouter([{
     path: "/",
     element: <Layout></Layout>,
     children: [
-        {
-            index: true,
-            element: <Home/>
-        },
+        // {
+        //     index: true,
+        //     element: <Home/>
+        // },
         {
             path: "/medication",
             element: <Medication/>

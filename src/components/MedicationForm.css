@@ -1,0 +1,55 @@
+form.medication-form {
+  background-color: #1e40af; /* azul */
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: white;
+}
+
+.medication-form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.medication-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #e0e7ff;
+}
+
+.medication-form input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.medication-form input:focus {
+  outline: none;
+  border-color: #3b82f6; /* azul más claro */
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+
+.medication-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1e3a8a; /* azul oscuro */
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.medication-form button:hover {
+  background-color: #2563eb; /* azul más brillante */
+}
