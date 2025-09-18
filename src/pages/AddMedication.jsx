@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import MedicationForm from "../components/MedicationForm";
 import "./AddMedication.css"
+import ResetButton from "../components/resetButton/ResetButton.jsx" 
 
 const AddMedication = () => {
     const handleAddMedication = (data) => {
@@ -18,6 +19,7 @@ const AddMedication = () => {
                     <MedicationForm onSubmit={handleAddMedication} buttonLabel="Guardar" />
                 </div>
             </div>
+        <ResetButton></ResetButton>
         </>
     )
 }
