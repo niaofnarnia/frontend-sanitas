@@ -3,15 +3,6 @@ import { useState, useEffect } from 'react'
 import './Treatment.css'
 import MedicationItem from '../components/MedicationItem'
 
-// const Treatment = () => {
-//     return (
-//         <>
-           
-//         </>
-//     )
-// }
-
-// export default Treatment
 // Componente para un medicamento individual
 const MedicationItemTreatment = ({ medication, onToggle, showCheckbox = true }) => {
   const getTypeColor = (type) => {
@@ -208,37 +199,8 @@ const Treatment = () => {
         onToggle={toggleMedication}
         showCheckbox={false}
       />
-      
-      {/* Estadísticas opcionales */}
-      {/* <div style={{ 
-        textAlign: 'center', 
-        marginTop: '20px', 
-        padding: '16px',
-        backgroundColor: '#f8f9fa',
-        borderRadius: '8px'
-      }}>
-        <p style={{ margin: '0', fontSize: '14px', color: '#666' }}>
-          Progreso: {takenMedications.length}/{medications.length} medicamentos tomados
-        </p>
-        {medications.length > 0 && (
-          <div style={{
-            width: '100%',
-            height: '8px',
-            backgroundColor: '#e0e0e0',
-            borderRadius: '4px',
-            marginTop: '8px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: `${(takenMedications.length / medications.length) * 100}%`,
-              height: '100%',
-              backgroundColor: '#4caf50',
-              transition: 'width 0.3s ease'
-            }}></div>
-          </div>
-        )}
-      </div> */}
     </div>
+    
   );
 };
 
