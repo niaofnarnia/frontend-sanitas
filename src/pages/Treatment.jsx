@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Treatment.css'
 import MedicationItem from '../components/MedicationItem'
+import AddMedicationButton from '../components/addMedicationButton/AddMedicationButton';
 
 // Componente para un medicamento individual
 const MedicationItemTreatment = ({ medication, onToggle, showCheckbox = true }) => {
@@ -155,13 +156,6 @@ const Treatment = () => {
   const medicationsToTake = medications.filter(med => !med.taken);
   const takenMedications = medications.filter(med => med.taken);
 
-//   const containerStyle = {
-//     padding: '20px',
-//     maxWidth: '400px',
-//     margin: '0 auto',
-//     fontFamily: 'Arial, sans-serif'
-//   };
-
   const titleStyle = {
     fontSize: '24px',
     fontWeight: 'bold',
@@ -181,6 +175,7 @@ const Treatment = () => {
   }
 
   return (
+    <>
     <div className='container-style-treatment'>
       <h1 style={titleStyle}>Tratamiento diario</h1>
       
@@ -201,6 +196,8 @@ const Treatment = () => {
       />
     </div>
     
+    <AddMedicationButton></AddMedicationButton>
+    </>
   );
 };
 
