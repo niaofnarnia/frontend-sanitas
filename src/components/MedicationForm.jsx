@@ -1,43 +1,43 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "../components/MedicationForm.css"; 
+import "./MedicationForm.css";
 
 export default function MedicationForm({ defaultValues = {}, onSubmit, buttonLabel = "Guardar" }) {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm({ defaultValues });
+  const { register, handleSubmit, formState: { errors } } = useForm({ defaultValues });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="medication-form">
-      <h2>{buttonLabel === "Guardar" ? "Añadir Medicación" : "Editar Medicación"}</h2>
 
-      <div>
-        <label>Nombre:</label>
+      <div className="form-field">
+        <label className="name-input">Nombre:</label>
         <input type="text" {...register("name", { required: "Este campo es obligatorio" })} />
-        {errors.name && <p className="error">{errors.name.message}</p>}
+        {errors.name && <span className="error">{errors.name.message}</span>}
       </div>
 
-      <div>
-        <label>Dosis:</label>
+      <div className="form-field">
+        <label className="dosis-input">Dosis:</label>
         <input type="text" {...register("dose", { required: "Indica la dosis" })} />
-        {errors.dose && <p className="error">{errors.dose.message}</p>}
+        {errors.dose && <span className="error">{errors.dose.message}</span>}
       </div>
 
-      <div>
-        <label>Frecuencia:</label>
+      <div className="form-field">
+        <label className="frecuence-input">Frecuencia:</label>
         <input type="text" {...register("frequency", { required: "Indica la frecuencia" })} />
-        {errors.frequency && <p className="error">{errors.frequency.message}</p>}
+        {errors.frequency && <span className="error">{errors.frequency.message}</span>}
       </div>
 
-      <div>
-        <label>Fecha y Hora:</label>
+      <div className="form-field">
+        <label className="data-input">Fecha y Hora:</label>
         <input type="datetime-local" {...register("datetime", { required: "Selecciona fecha y hora" })} />
-        {errors.datetime && <p className="error">{errors.datetime.message}</p>}
+        {errors.datetime && <span className="error">{errors.datetime.message}</span>}
       </div>
 
-      <button type="submit">{buttonLabel}</button>
+        <div className="form-field">
+        <label className="alergy-input">Alergias:</label>
+        <input type="text" {...register("frequency", { required: "Indica la frecuencia" })} />
+        {errors.frequency && <span className="error">{errors.frequency.message}</span>}
+      </div>
+
     </form>
   );
 }
