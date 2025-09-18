@@ -70,7 +70,8 @@ const MedicationSection = ({ title, medications, onToggle, showCheckbox = true, 
     marginBottom: '16px',
     overflow: 'hidden',
     minHeight: isEmpty ? '120px' : 'auto',
-    with: '500px'
+    with: '500px',
+    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.1)',
   };
 
   const contentStyle = {
@@ -79,13 +80,6 @@ const MedicationSection = ({ title, medications, onToggle, showCheckbox = true, 
     display: 'flex',
     flexDirection: 'column',
     justifyContent: medications.length === 0 ? 'center' : 'flex-start'
-  };
-
-  const emptyStyle = {
-    textAlign: 'center',
-    color: '#fff',
-    fontSize: '14px',
-    fontStyle: 'italic'
   };
 
   return (
@@ -102,7 +96,7 @@ const MedicationSection = ({ title, medications, onToggle, showCheckbox = true, 
             />
           ))
         ) : (
-          <p className='empty-style' style={emptyStyle}>
+          <p className='empty-style'>
             {showCheckbox ? 'No hay medicamentos por tomar' : 'No has tomado medicamentos'}
           </p>
         )}
@@ -187,7 +181,7 @@ const Treatment = () => {
 
   if (loading) {
     return (
-      <div className='containerStyle-treatment'>
+      <div className='container-style-treatment'>
         <p style={{ textAlign: 'center', padding: '40px' }}>
           Cargando tratamiento...
         </p>
@@ -196,8 +190,8 @@ const Treatment = () => {
   }
 
   return (
-    <div className='containerStyle-treatment'>
-      <h1 style={titleStyle}>Tratamiento</h1>
+    <div className='container-style-treatment'>
+      <h1 style={titleStyle}>Tratamiento diario</h1>
       
       {/* Sección: Medicación por tomar */}
       <MedicationSection
