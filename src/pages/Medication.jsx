@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import './Medication.css'
-import { useState, useEffect } from 'react'
 import MedicationList from '../components/MedicationList'
 
 const Medication = () => {

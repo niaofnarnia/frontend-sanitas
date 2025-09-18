@@ -3,10 +3,9 @@
     margin-top: 20px;
     display: flex;
     align-items: center;
-    gap: 20ppx; /*espacio entre elementos*/
     padding: 10px 25px;
     border-radius: 8px;
-    gap: 16px;
+    gap: 40px;
     width: fit-content;
 }
 
