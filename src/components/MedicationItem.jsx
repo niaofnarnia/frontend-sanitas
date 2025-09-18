@@ -1,7 +1,11 @@
 import './MedicationItem.css'
+// import MedicationList from '../components/MedicationList'
 
 const MedicationItem = ({ medication }) => {
-  const getTypeClass = (type) => {
+  if(!medication) return null
+
+
+  const getTypeClass = (type = '') => {
     switch(type.toLowerCase()) {
       case 'cronico': return 'cronic';
       case 'eventual': return 'eventual';
@@ -10,7 +14,7 @@ const MedicationItem = ({ medication }) => {
     }
   };
 
-  const getTypeColor = (type) => {
+  const getTypeColor = (type = '') => {
     switch(type.toLowerCase()) {
       case 'cronico': return '#E0A870';
       case 'eventual': return '#BEE7AC';
