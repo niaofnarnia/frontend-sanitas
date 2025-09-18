@@ -1,0 +1,101 @@
+:root {
+  --med-blue: #53A3CD;
+  --med-blue-hover: #468AAE;
+  --text-on-blue: #ffffff;
+  --overlay: rgba(2, 6, 23, 0.6);
+  --ring: rgba(255, 255, 255, 0.6);
+}
+.popup__overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: var(--overlay);
+  z-index: 1000;
+  animation: popupOverlayIn 180ms ease;
+}
+@keyframes popupOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.popup__dialog {
+  width: min(560px, 92vw);
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  transform: translateY(8px) scale(0.98);
+  animation: popupDialogIn 220ms ease-out forwards;
+  outline: none;
+  position: relative;
+}
+.popup__dialog--med {
+  background: var(--med-blue);
+  color: var(--text-on-blue);
+}
+.popup__dialog--med:hover {
+  background: var(--med-blue-hover);
+}
+@keyframes popupDialogIn {
+  to { transform: translateY(0) scale(1); }
+}
+.popup__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: var(--text-on-blue);
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.popup__close:hover { background: rgba(255,255,255,0.12); }
+.popup__title {
+  margin: 0;
+  padding: 22px 20px 0 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.popup__subtitle {
+  font-weight: 500;
+  opacity: 0.9;
+  margin-left: 6px;
+}
+.popup__content { padding: 12px 20px 0 20px; }
+.popup__actions {
+  padding: 18px 20px 22px 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: var(--text-on-blue);
+  cursor: pointer;
+  transition: transform 80ms ease, background 120ms ease;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+.btn:hover { background: rgba(255,255,255,0.12); }
+.btn:active { transform: translateY(1px); }
+.btn-primary {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: #ffffff;
+}
+.btn-primary:hover { background: #f1f5f9; }
+.btn-ghost { background: transparent; }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --overlay: rgba(0, 0, 0, 0.6);
+    --ring: rgba(255,255,255,0.7);
+  }
+}
