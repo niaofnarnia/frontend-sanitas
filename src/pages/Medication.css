@@ -1,0 +1,49 @@
+
+.legend {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20ppx; /*espacio entre elementos*/
+    padding: 10px 25px;
+    border-radius: 8px;
+    gap: 16px;
+    width: fit-content;
+}
+
+.legend, .legend-item, .legend-text {
+    background-color: #d9d9d9;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px; /*quitar?*/
+}
+
+.cronic .legend-color {
+    background-color: #E0A870;
+}
+
+.eventual .legend-color {
+    background-color: #BEE7AC;
+}
+
+.reciente .legend-color {
+    background-color: #F2D2B7;
+}
+
+/*CONTENEDOR LISTA MEDICAMENTOS*/
+.box-medication {
+    width: 400px;
+    margin: 15px 0 30px 0;
+}
+
+.medication-title {
+    padding: 15px;
+}
