@@ -13,7 +13,7 @@ const routerMedications = createBrowserRouter([{
     children: [
         {
             index: true,
-            element: <Home/>
+            element: <Home />
         },
         {
             path: "/treatment",
@@ -21,7 +21,7 @@ const routerMedications = createBrowserRouter([{
         },
         {
             path: "/medication",
-            element: <Medication/>
+            element: <Medication />
         },
         {
             path: "/alerts/",
@@ -29,11 +29,11 @@ const routerMedications = createBrowserRouter([{
         },
         {
             path: "/add-medication/",
-            element: <AddMedication/>
+            element: <AddMedication />
         },
         {
             path: "/edit-medication/",
-            element: <EdditMedication/>
+            element: <EdditMedication />
         },
     ]
 }])

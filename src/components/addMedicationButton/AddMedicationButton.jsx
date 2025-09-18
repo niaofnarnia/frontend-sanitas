@@ -1,2 +1,7 @@
-import './addMedicationButton.css'
-<imput className="addMedicationButton" type="button"></imput>
+import './AddMedicationButton.css'
+import { Link } from 'react-router-dom'
+const AddMedicationButton = () => {
+ return <Link to="/add-medication"  className="addMedicationButton" type="button"></Link>
+};
+export default AddMedicationButton;
+

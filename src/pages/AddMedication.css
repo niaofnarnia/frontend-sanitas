@@ -1,0 +1,60 @@
+.add-medication-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow-y: auto;
+  flex-direction: column;
+  padding-top: 5rem; /* espacio suficiente para que el logo no tape el contenido */
+}
+
+h1 {
+  color: #1e40af;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor del formulario */
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+
+
+/* Tablets */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .logo-container img {
+    width: 15vw;
+    max-width: 120px;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .logo-container img {
+    width: 20vw;
+    max-width: 80px;
+  }
+
+  .medication-form input,
+  .medication-form button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+}
