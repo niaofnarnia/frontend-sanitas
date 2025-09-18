@@ -1,6 +1,7 @@
 import './EnterButton.css'
-<imput className="EnterButton" type="button"></imput>
+import { Link } from 'react-router-dom'
 
+return <Link to="/edit-medication"className="EnterButton" type="button"></Link>
 
 export default EnterButton;
 
