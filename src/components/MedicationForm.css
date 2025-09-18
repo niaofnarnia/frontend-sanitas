@@ -33,7 +33,7 @@ form.medication-form {
 .dosis-input,
 .frecuence-input,
 .data-input,
-.alergy-input {
+.personalize-hour-input {
   background-color: #1e40af;
   text-align: start;
 }
@@ -56,18 +56,31 @@ form.medication-form {
   box-sizing: border-box;
 }
 
+
 .medication-form input:focus {
   outline: none;
   border-color: #3b82f6;
   box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
 }
 
-/* Mensajes de error */
-.medication-form .error {
-  color: #f87171;
-  font-size: 0.85rem;
-  margin-top: 0.25rem;
+.input-wrapper {
+  position: relative; /* permite posicionar el error dentro */
 }
+.input-wrapper select {
+  padding-left: 3rem; 
+}
+.error-inside {
+  position: absolute;
+  left: 0.5rem;       
+  top: 50%;            /* verticalmente centrado */
+  transform: translateY(-50%);
+  color: #f87171;
+  font-size: 0.8rem;
+  background-color: transparent; /* no tapa el input */
+
+  text-align: center;
+}
+
 
 /* Botón */
 .medication-form button {
