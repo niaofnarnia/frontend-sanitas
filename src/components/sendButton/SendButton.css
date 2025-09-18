@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  block-size: border-box;
+}
+.SendButton{
+  background-color:rgba(4, 173, 178, 1);
+  font-family: Arial, Helvetica, sans-serif;
+   font-size: 20px;
+  border-radius: 15px;
+  color:aliceblue;
+ 
+}
