@@ -8,15 +8,15 @@ const MedicationList = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
-    const MedicationItem = ({ medication }) => {
-        return (
-            <div className="medication-item">
-                <Link to={`/medication-detail/${medication.id}`} state={{ medication }}>
-                    {medication.name}
-                </Link>
-            </div>
-        );
-    };
+    // const MedicationItem = ({ medication }) => {
+    //     return (
+    //         <div className="medication-item">
+    //             <Link to={`/medication-detail/${medication.id}`} state={{ medication }}>
+    //                 {medication.name}
+    //             </Link>
+    //         </div>
+    //     );
+    // };
 
     const fetchMedications = async () => {
         try {
