@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import "./PopUp.css";
 
-export default function PopUp({
+function ModalPopUp({
   nextDoseAt,
   preAlertMinutes = 5,
   medName = "",
@@ -24,16 +24,21 @@ export default function PopUp({
   const dueTriggeredRef = useRef(false);
 
   useEffect(() => {
+    preTriggeredRef.current = false;
+    dueTriggeredRef.current = false;
+    setIsOpen(false);
+    setPhase("idle");
+  }, [target.getTime(), preAlertMinutes]);
+
+  useEffect(() => {
     const tick = () => {
       const msLeft = target.getTime() - Date.now();
-
       if (msLeft <= 0 && !dueTriggeredRef.current) {
         dueTriggeredRef.current = true;
         setPhase("due");
         setIsOpen(true);
         return;
       }
-
       const preWindowMs = preAlertMinutes * 60 * 1000;
       if (msLeft <= preWindowMs && msLeft > 0 && !preTriggeredRef.current) {
         preTriggeredRef.current = true;
@@ -42,7 +47,6 @@ export default function PopUp({
         return;
       }
     };
-
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
@@ -53,12 +57,10 @@ export default function PopUp({
     lastFocusedRef.current = document.activeElement;
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-
     setTimeout(() => {
       const firstBtn = dialogRef.current?.querySelector(".btn-primary");
       (firstBtn || dialogRef.current)?.focus?.();
     }, 0);
-
     const onKeyDown = (e) => {
       if (e.key === "Escape") {
         e.stopPropagation();
@@ -66,7 +68,6 @@ export default function PopUp({
       }
     };
     document.addEventListener("keydown", onKeyDown);
-
     return () => {
       document.body.style.overflow = prevOverflow;
       document.removeEventListener("keydown", onKeyDown);
@@ -130,24 +131,22 @@ export default function PopUp({
                 className="btn btn-primary"
                 onClick={() => {
                   onTaken?.();
-                  setIsOpen(false);
                 }}
               >
                 Hecho
               </button>
+            </>
+          ) : (
+            <>
               <button
                 className="btn btn-ghost"
                 onClick={() => {
                   const snoozeMins = 5;
                   onSnooze?.(snoozeMins);
-                  setIsOpen(false);
                 }}
               >
                 Posponer 5 min
               </button>
-            </>
-          ) : (
-            <>
               <button className="btn btn-ghost" onClick={() => setIsOpen(false)}>
                 Entendido
               </button>
@@ -159,3 +158,81 @@ export default function PopUp({
     document.body
   );
 }
+
+function getNextOccurrence(timeStr, from = new Date()) {
+  const [h, m] = timeStr.split(":").map(Number);
+  const next = new Date(from);
+  next.setSeconds(0, 0);
+  next.setHours(h, m, 0, 0);
+  if (next <= from) next.setDate(next.getDate() + 1);
+  return next;
+}
+
+export default function ReminderPopUps({ pollMs = 60000, preAlertMinutes = 5 }) {
+  const [reminders, setReminders] = useState([]);
+  const [snoozedUntil, setSnoozedUntil] = useState({});
+
+  const load = async () => {
+    try {
+      const res = await fetch("/api/reminders/active");
+      if (!res.ok) return;
+      const data = await res.json();
+      setReminders(Array.isArray(data) ? data : []);
+    } catch (err) {
+      void err;
+    }
+  };
+
+  useEffect(() => {
+    load();
+    const id = setInterval(load, pollMs);
+    return () => clearInterval(id);
+  }, [pollMs]);
+
+  const handleTaken = async (id) => {
+    try {
+      await fetch(`/api/reminders/${id}/taken`, { method: "PUT" });
+    } catch (err) {
+      void err;
+    }
+    setReminders((rs) => rs.map((r) => (r.id === id ? { ...r, taken: true } : r)));
+    setSnoozedUntil((m) => {
+      const n = { ...m };
+      delete n[id];
+      return n;
+    });
+  };
+
+  const handleSnooze = (id, mins) => {
+    const until = new Date(Date.now() + mins * 60 * 1000);
+    setSnoozedUntil((m) => ({ ...m, [id]: until.toISOString() }));
+  };
+
+  const active = reminders.filter((r) => !r.taken);
+
+  return (
+    <>
+      {active.map((r) => {
+        const medStr =
+          r?.medication?.dose
+            ? `${r.medication.name} (${r.medication.dose})`
+            : r?.medication?.name || "";
+        const snoozedISO = snoozedUntil[r.id];
+        const nextAt = snoozedISO ? new Date(snoozedISO) : getNextOccurrence(r.time);
+        return (
+          <ModalPopUp
+            key={r.id}
+            nextDoseAt={nextAt}
+            preAlertMinutes={preAlertMinutes}
+            medName={medStr}
+            onTaken={() => handleTaken(r.id)}
+            onSnooze={(mins) => handleSnooze(r.id, mins)}
+            closeOnOverlayClick
+          />
+        );
+      })}
+    </>
+  );
+}
+
+export { ModalPopUp };
