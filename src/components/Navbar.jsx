@@ -5,10 +5,12 @@ const Navbar = () => {
     return (
         <>
             <nav id="top">
-                <img src="public/logo-proyecto.png" alt="logo" />
+                <img className='img-logo-nav' src="public/logo-proyecto.png" alt="logo" />
                 <ul>
-                    <li><Link>Medicamentos</Link></li>
-                    <li><Link>Alertas</Link></li>
+                    <li className='menu-item'><Link to="/">Tratamiento</Link></li>
+                    <li className='menu-item'><Link to="/">Medicamentos</Link></li>
+                    {/* <li><Link>Alertas</Link></li> */}
+
                     {/* <li><Link>Modo oscuro</Link></li> */}
                 </ul>
             </nav>
