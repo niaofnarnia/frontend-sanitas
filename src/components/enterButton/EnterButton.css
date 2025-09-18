@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  block-size: border-box;
+}
+.EnterButton{
+  background-color:rgba(5, 99, 149, 1);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  color:aliceblue;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
