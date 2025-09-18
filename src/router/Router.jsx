@@ -6,10 +6,11 @@ import EdditMedication from "../pages/EditMedication";
 import Home from "../pages/Home";
 import Alerts from "../pages/Alerts";
 import Treatment from "../pages/Treatment";
+import MedicationDetail from "../components/MedicationDetail";
 
 const routerMedications = createBrowserRouter([{
     path: "/",
-    element: <Layout/>,
+    element: <Layout />,
     children: [
         {
             index: true,
@@ -17,7 +18,7 @@ const routerMedications = createBrowserRouter([{
         },
         {
             path: "/treatment",
-            element: <Treatment/>
+            element: <Treatment />
         },
         {
             path: "/medication",
@@ -25,7 +26,7 @@ const routerMedications = createBrowserRouter([{
         },
         {
             path: "/alerts/",
-            element: <Alerts/>
+            element: <Alerts />
         },
         {
             path: "/add-medication/",
@@ -35,6 +36,10 @@ const routerMedications = createBrowserRouter([{
             path: "/edit-medication/",
             element: <EdditMedication />
         },
+        {
+            path: "/medication-detail/:id",
+            element: <MedicationDetail  />,
+        }
     ]
 }])
 

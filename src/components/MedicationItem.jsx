@@ -1,6 +1,6 @@
 import './MedicationItem.css'
 // import MedicationList from '../components/MedicationList'
-
+import { Link } from 'react-router-dom'
 const MedicationItem = ({ medication }) => {
   if(!medication) return null
 
@@ -32,6 +32,11 @@ const MedicationItem = ({ medication }) => {
   };
 
   return (
+    <Link 
+      to={`/medication-detail/${medication.id}`} 
+      state={{ medication }} 
+      className="itemLink"
+    >
     <div className="itemStyle">
       <div style={indicatorStyle}></div>
       <div className="contentStyle">
@@ -48,6 +53,7 @@ const MedicationItem = ({ medication }) => {
         )}
       </div>
     </div>
+    </Link>
   );
 };
 

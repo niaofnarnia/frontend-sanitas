@@ -8,6 +8,16 @@ const MedicationList = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
+    const MedicationItem = ({ medication }) => {
+        return (
+            <div className="medication-item">
+                <Link to={`/medication-detail/${medication.id}`} state={{ medication }}>
+                    {medication.name}
+                </Link>
+            </div>
+        );
+    };
+
     const fetchMedications = async () => {
         try {
             setLoading(true)
@@ -81,7 +91,7 @@ const MedicationList = () => {
     }
 
     //estado vacío
-    if(medications.length === 0) {
+    if (medications.length === 0) {
         return (
             <div className="emptyStateStyle">
                 <p>No hay medicamentos registrados</p>
