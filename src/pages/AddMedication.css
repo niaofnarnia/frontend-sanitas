@@ -1,16 +1,4 @@
-.add-medication-page {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  box-sizing: border-box;
-  position: relative;
-  overflow-y: auto;
-  flex-direction: column;
-  padding-top: 5rem; /* espacio suficiente para que el logo no tape el contenido */
-}
+
 
 h1 {
   color: #1e40af;
