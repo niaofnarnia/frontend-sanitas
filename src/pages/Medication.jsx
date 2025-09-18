@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Medication = () => {
     return (
         <>
-            <p>Hola</p>
+            <div className="bex-medication"></div>
         </>
     )
 }

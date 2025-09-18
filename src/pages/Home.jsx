@@ -8,6 +8,7 @@ const Home = () => {
             <div className="img-box">
                 <Link to="/medication"><img className='img-logo' src="public\logo-proyecto.png" alt="" /></Link>
             </div>
+            <Link to="/medication">Entrar</Link>
         </>
     )
 }

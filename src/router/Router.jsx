@@ -4,6 +4,7 @@ import Medication from "../pages/Medication";
 import AddMedication from "../pages/AddMedication";
 import EdditMedication from "../pages/EditMedication";
 import Home from "../pages/Home";
+import Alerts from "../pages/Alerts";
 
 const routerMedications = createBrowserRouter([{
     path: "/",
@@ -16,6 +17,10 @@ const routerMedications = createBrowserRouter([{
         {
             path: "/medication",
             element: <Medication/>
+        },
+        {
+            path: "/alerts/",
+            element: <Alerts/>
         },
         {
             path: "/add-medication/",
