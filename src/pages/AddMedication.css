@@ -26,19 +26,7 @@ h1 {
   margin: 0 auto;
 }
 
-/* Logo siempre arriba a la izquierda */
-.logo-container {
-  position: fixed; /* se mantiene siempre visible y no solapa */
-  top: 1rem;
-  left: 1rem; /* <--- izquierda */
-  z-index: 1000;
-}
 
-.logo-container img {
-  width: 200px; 
-  max-width: 20vw; /* se adapta al tamaño de pantalla */
-  height: auto;
-}
 
 /* Tablets */
 @media (max-width: 768px) {
