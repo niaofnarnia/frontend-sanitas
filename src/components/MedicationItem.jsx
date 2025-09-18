@@ -4,16 +4,6 @@ import { Link } from 'react-router-dom'
 const MedicationItem = ({ medication }) => {
   if(!medication) return null
 
-
-  const getTypeClass = (type = '') => {
-    switch(type.toLowerCase()) {
-      case 'cronico': return 'cronic';
-      case 'eventual': return 'eventual';
-      case 'reciente': return 'reciente';
-      default: return 'eventual';
-    }
-  };
-
   const getTypeColor = (type = '') => {
     switch(type.toLowerCase()) {
       case 'cronico': return '#E0A870';

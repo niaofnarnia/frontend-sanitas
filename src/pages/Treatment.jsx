@@ -2,16 +2,8 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Treatment.css'
 import MedicationItem from '../components/MedicationItem'
+import AddMedicationButton from '../components/addMedicationButton/AddMedicationButton';
 
-// const Treatment = () => {
-//     return (
-//         <>
-           
-//         </>
-//     )
-// }
-
-// export default Treatment
 // Componente para un medicamento individual
 const MedicationItemTreatment = ({ medication, onToggle, showCheckbox = true }) => {
   const getTypeColor = (type) => {
@@ -164,13 +156,6 @@ const Treatment = () => {
   const medicationsToTake = medications.filter(med => !med.taken);
   const takenMedications = medications.filter(med => med.taken);
 
-//   const containerStyle = {
-//     padding: '20px',
-//     maxWidth: '400px',
-//     margin: '0 auto',
-//     fontFamily: 'Arial, sans-serif'
-//   };
-
   const titleStyle = {
     fontSize: '24px',
     fontWeight: 'bold',
@@ -190,6 +175,7 @@ const Treatment = () => {
   }
 
   return (
+    <>
     <div className='container-style-treatment'>
       <h1 style={titleStyle}>Tratamiento diario</h1>
       
@@ -208,37 +194,10 @@ const Treatment = () => {
         onToggle={toggleMedication}
         showCheckbox={false}
       />
-      
-      {/* Estadísticas opcionales */}
-      {/* <div style={{ 
-        textAlign: 'center', 
-        marginTop: '20px', 
-        padding: '16px',
-        backgroundColor: '#f8f9fa',
-        borderRadius: '8px'
-      }}>
-        <p style={{ margin: '0', fontSize: '14px', color: '#666' }}>
-          Progreso: {takenMedications.length}/{medications.length} medicamentos tomados
-        </p>
-        {medications.length > 0 && (
-          <div style={{
-            width: '100%',
-            height: '8px',
-            backgroundColor: '#e0e0e0',
-            borderRadius: '4px',
-            marginTop: '8px',
-            overflow: 'hidden'
-          }}>
-            <div style={{
-              width: `${(takenMedications.length / medications.length) * 100}%`,
-              height: '100%',
-              backgroundColor: '#4caf50',
-              transition: 'width 0.3s ease'
-            }}></div>
-          </div>
-        )}
-      </div> */}
     </div>
+    
+    <AddMedicationButton></AddMedicationButton>
+    </>
   );
 };
 

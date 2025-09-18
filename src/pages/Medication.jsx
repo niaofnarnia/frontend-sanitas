@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Medication.css'
 import MedicationList from '../components/MedicationList'
+import AddMedicationButton from '../components/addMedicationButton/AddMedicationButton'
 
 const Medication = () => {
     return (
@@ -24,6 +25,8 @@ const Medication = () => {
                 <h2 className="medication-title">Medicamentos</h2>
                 <MedicationList></MedicationList>
             </div>
+
+            <AddMedicationButton></AddMedicationButton>
         </>
     )
 }

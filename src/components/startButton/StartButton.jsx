@@ -1,7 +1,8 @@
 import './StartButton.css'
+import { Link } from 'react-router-dom'
 const StartButton = ({ texto = "Entrar" }) => {
 
-  return <button className="StartButton">{texto}</button>;
+  return <Link to="/treatment" className="StartButton">{texto}</Link>
 
 };
 
